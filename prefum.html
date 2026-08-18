@@ -1,0 +1,906 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+<title>SoftEra | Luxury Perfume Collection</title>
+
+<!-- GOOGLE FONTS -->
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+/* =========================
+RESET
+========================= */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+font-family:'Poppins',sans-serif;
+background:#fffaf8;
+color:#222;
+overflow-x:hidden;
+}
+
+/* =========================
+COLORS
+========================= */
+
+:root{
+--pink:#f8dfe3;
+--softPink:#f6cfd7;
+--gold:#c8a96b;
+--cream:#fff8f1;
+--black:#151515;
+--white:#ffffff;
+--shadow:0 10px 30px rgba(0,0,0,0.08);
+}
+
+/* =========================
+NAVBAR
+========================= */
+
+header{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+background:rgba(255,255,255,0.95);
+backdrop-filter:blur(12px);
+z-index:999;
+box-shadow:0 2px 15px rgba(0,0,0,0.05);
+}
+
+.navbar{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:18px 7%;
+}
+
+.logo{
+font-size:34px;
+font-family:'Cormorant Garamond',serif;
+font-weight:700;
+color:var(--black);
+}
+
+.logo span{
+color:var(--gold);
+}
+
+.nav-links{
+display:flex;
+gap:25px;
+}
+
+.nav-links a{
+text-decoration:none;
+color:var(--black);
+font-size:15px;
+font-weight:500;
+transition:0.3s;
+}
+
+.nav-links a:hover{
+color:var(--gold);
+}
+
+/* =========================
+HERO
+========================= */
+
+.hero{
+min-height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+padding:140px 8% 80px;
+background:
+linear-gradient(rgba(255,248,241,0.75),rgba(255,248,241,0.75)),
+url('https://images.unsplash.com/photo-1594035910387-fea47794261f?q=80&w=1400&auto=format&fit=crop') center/cover;
+}
+
+.hero-content{
+max-width:800px;
+}
+
+.hero h1{
+font-size:70px;
+font-family:'Cormorant Garamond',serif;
+line-height:1.1;
+margin-bottom:25px;
+color:#111;
+}
+
+.hero p{
+font-size:18px;
+line-height:1.8;
+margin-bottom:35px;
+color:#444;
+}
+
+.hero-buttons{
+display:flex;
+justify-content:center;
+gap:20px;
+flex-wrap:wrap;
+}
+
+.btn{
+padding:15px 32px;
+border:none;
+border-radius:40px;
+cursor:pointer;
+font-size:15px;
+font-weight:600;
+transition:0.4s;
+text-decoration:none;
+display:inline-block;
+}
+
+.btn-gold{
+background:var(--gold);
+color:white;
+}
+
+.btn-gold:hover{
+transform:translateY(-4px);
+box-shadow:0 10px 20px rgba(200,169,107,0.4);
+}
+
+.btn-outline{
+background:white;
+border:2px solid var(--gold);
+color:var(--gold);
+}
+
+.btn-outline:hover{
+background:var(--gold);
+color:white;
+}
+
+/* =========================
+SECTION
+========================= */
+
+.section{
+padding:100px 8%;
+}
+
+.section-title{
+text-align:center;
+margin-bottom:60px;
+}
+
+.section-title h2{
+font-size:55px;
+font-family:'Cormorant Garamond',serif;
+margin-bottom:15px;
+}
+
+.section-title p{
+color:#666;
+font-size:16px;
+}
+
+/* =========================
+PRODUCT GRID
+========================= */
+
+.product-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:35px;
+}
+
+.product-card{
+background:white;
+border-radius:30px;
+overflow:hidden;
+box-shadow:var(--shadow);
+transition:0.4s;
+position:relative;
+}
+
+.product-card:hover{
+transform:translateY(-10px);
+}
+
+.product-image{
+position:relative;
+overflow:hidden;
+}
+
+.product-image img{
+width:100%;
+height:350px;
+object-fit:cover;
+transition:0.5s;
+}
+
+.product-card:hover img{
+transform:scale(1.08);
+}
+
+.wishlist{
+position:absolute;
+top:18px;
+right:18px;
+background:white;
+width:42px;
+height:42px;
+display:flex;
+align-items:center;
+justify-content:center;
+border-radius:50%;
+font-size:18px;
+cursor:pointer;
+box-shadow:0 4px 10px rgba(0,0,0,0.1);
+}
+
+.product-content{
+padding:28px;
+}
+
+.product-content h3{
+font-size:28px;
+font-family:'Cormorant Garamond',serif;
+margin-bottom:12px;
+}
+
+.product-content p{
+font-size:14px;
+line-height:1.7;
+color:#666;
+margin-bottom:18px;
+}
+
+.includes{
+margin-bottom:20px;
+}
+
+.includes span{
+display:inline-block;
+background:var(--cream);
+padding:8px 14px;
+margin:5px;
+border-radius:30px;
+font-size:12px;
+}
+
+.price-rating{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:20px;
+}
+
+.price{
+font-size:22px;
+font-weight:700;
+color:var(--gold);
+}
+
+.rating{
+font-size:14px;
+color:#f5a623;
+}
+
+.card-buttons{
+display:flex;
+gap:12px;
+flex-wrap:wrap;
+}
+
+.small-btn{
+flex:1;
+padding:13px;
+border:none;
+border-radius:30px;
+font-size:14px;
+font-weight:600;
+cursor:pointer;
+transition:0.4s;
+}
+
+.cart-btn{
+background:#111;
+color:white;
+}
+
+.cart-btn:hover{
+background:var(--gold);
+}
+
+.shop-btn{
+background:var(--softPink);
+color:#111;
+}
+
+.shop-btn:hover{
+background:var(--gold);
+color:white;
+transform:translateY(-3px);
+}
+
+/* =========================
+PERFUME TYPES
+========================= */
+
+.types-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:30px;
+}
+
+.type-card{
+background:white;
+padding:40px 30px;
+border-radius:25px;
+box-shadow:var(--shadow);
+text-align:center;
+}
+
+.type-card h3{
+font-size:34px;
+font-family:'Cormorant Garamond',serif;
+margin-bottom:18px;
+}
+
+/* =========================
+WHY CHOOSE
+========================= */
+
+.why-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:30px;
+}
+
+.why-card{
+background:linear-gradient(135deg,#fff,#fff4ef);
+padding:40px;
+border-radius:25px;
+box-shadow:var(--shadow);
+text-align:center;
+}
+
+.why-card h3{
+font-size:30px;
+font-family:'Cormorant Garamond',serif;
+margin-bottom:18px;
+}
+
+/* =========================
+CTA
+========================= */
+
+.cta{
+padding:120px 8%;
+text-align:center;
+background:
+linear-gradient(rgba(0,0,0,0.55),rgba(0,0,0,0.55)),
+url('https://images.unsplash.com/photo-1541643600914-78b084683601?q=80&w=1400&auto=format&fit=crop') center/cover;
+color:white;
+}
+
+.cta h2{
+font-size:60px;
+font-family:'Cormorant Garamond',serif;
+margin-bottom:20px;
+}
+
+.cta p{
+max-width:700px;
+margin:auto;
+line-height:1.9;
+margin-bottom:35px;
+}
+
+/* =========================
+FOOTER
+========================= */
+
+footer{
+background:#111;
+color:#ddd;
+padding:80px 8% 40px;
+}
+
+.footer-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:40px;
+margin-bottom:50px;
+}
+
+.footer-column h3{
+font-size:28px;
+font-family:'Cormorant Garamond',serif;
+margin-bottom:20px;
+color:white;
+}
+
+.footer-column a{
+display:block;
+color:#bbb;
+text-decoration:none;
+margin-bottom:12px;
+transition:0.3s;
+}
+
+.footer-column a:hover{
+color:var(--gold);
+padding-left:6px;
+}
+
+.copyright{
+text-align:center;
+border-top:1px solid rgba(255,255,255,0.1);
+padding-top:25px;
+font-size:14px;
+}
+
+/* =========================
+MOBILE
+========================= */
+
+@media(max-width:768px){
+
+.hero h1{
+font-size:48px;
+}
+
+.section-title h2{
+font-size:42px;
+}
+
+.cta h2{
+font-size:42px;
+}
+
+.nav-links{
+display:none;
+}
+
+}
+
+</style>
+</head>
+<body>
+
+<!-- =========================
+NAVBAR
+========================= -->
+
+<header>
+<div class="navbar">
+
+<div class="logo">
+Soft<span>Era</span>
+</div>
+
+<div class="nav-links">
+<a href="#">Home</a>
+<a href="#">Collections</a>
+<a href="#">Best Sellers</a>
+<a href="#">Gift Sets</a>
+<a href="#">Contact</a>
+</div>
+
+</div>
+</header>
+
+<!-- =========================
+HERO
+========================= -->
+
+<section class="hero">
+
+<div class="hero-content">
+
+<h1>Discover Your Signature Scent with SoftEra</h1>
+
+<p>
+Luxury-inspired perfumes made for every mood, every season,
+and every beautiful moment.
+</p>
+
+<div class="hero-buttons">
+<a href="#collections" class="btn btn-gold">Shop Perfumes</a>
+<a href="#types" class="btn btn-outline">Explore Collections</a>
+</div>
+
+</div>
+
+</section>
+
+<!-- =========================
+COLLECTIONS
+========================= -->
+
+<section class="section" id="collections">
+
+<div class="section-title">
+<h2>Luxury Perfume Collections</h2>
+<p>Elegant fragrances designed for every personality and occasion.</p>
+</div>
+
+<div class="product-grid">
+
+<!-- CARD -->
+
+<div class="product-card">
+<div class="product-image">
+<img src="https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?q=80&w=1200&auto=format&fit=crop">
+<div class="wishlist">♡</div>
+</div>
+
+<div class="product-content">
+
+<h3>Floral Collection</h3>
+
+<p>
+Soft feminine fragrances filled with blooming flowers and romantic vibes.
+Perfect for elegant everyday moments.
+</p>
+
+<div class="includes">
+<span>Gulabi Rose</span>
+<span>Jasmine Bloom</span>
+<span>Sweet Petals</span>
+<span>White Lily</span>
+</div>
+
+<div class="price-rating">
+<div class="price">Rs 4,999</div>
+<div class="rating">★★★★★</div>
+</div>
+
+<div class="card-buttons">
+<button class="small-btn cart-btn">Add To Cart</button>
+<button class="small-btn shop-btn">Shop Now</button>
+</div>
+
+</div>
+</div>
+
+<!-- CARD -->
+
+<div class="product-card">
+<div class="product-image">
+<img src="https://images.unsplash.com/photo-1616949755610-8c9bbc08f138?q=80&w=1200&auto=format&fit=crop">
+<div class="wishlist">♡</div>
+</div>
+
+<div class="product-content">
+
+<h3>Oriental / Oudh</h3>
+
+<p>
+Rich Arabic-inspired fragrances with deep oudh, amber,
+and musk notes that last beautifully.
+</p>
+
+<div class="includes">
+<span>Royal Oudh</span>
+<span>Amber Gold</span>
+<span>Velvet Musk</span>
+<span>Arabian Desire</span>
+</div>
+
+<div class="price-rating">
+<div class="price">Rs 7,499</div>
+<div class="rating">★★★★★</div>
+</div>
+
+<div class="card-buttons">
+<button class="small-btn cart-btn">Add To Cart</button>
+<button class="small-btn shop-btn">Shop Now</button>
+</div>
+
+</div>
+</div>
+
+<!-- CARD -->
+
+<div class="product-card">
+<div class="product-image">
+<img src="https://images.unsplash.com/photo-1523293182086-7651a899d37f?q=80&w=1200&auto=format&fit=crop">
+<div class="wishlist">♡</div>
+</div>
+
+<div class="product-content">
+
+<h3>Fresh / Citrus</h3>
+
+<p>
+Refreshing ocean, mint, and lemon fragrances perfect
+for summer and sunny days.
+</p>
+
+<div class="includes">
+<span>Lemon Breeze</span>
+<span>Ocean Mist</span>
+<span>Mint Fresh</span>
+<span>Aqua Glow</span>
+</div>
+
+<div class="price-rating">
+<div class="price">Rs 3,999</div>
+<div class="rating">★★★★☆</div>
+</div>
+
+<div class="card-buttons">
+<button class="small-btn cart-btn">Add To Cart</button>
+<button class="small-btn shop-btn">Shop Now</button>
+</div>
+
+</div>
+</div>
+
+<!-- CARD -->
+
+<div class="product-card">
+<div class="product-image">
+<img src="https://images.unsplash.com/photo-1541643600914-78b084683601?q=80&w=1200&auto=format&fit=crop">
+<div class="wishlist">♡</div>
+</div>
+
+<div class="product-content">
+
+<h3>Luxury Inspired</h3>
+
+<p>
+Inspired by famous designer fragrances with luxurious
+premium-style scent experiences.
+</p>
+
+<div class="includes">
+<span>Inspired by Chanel</span>
+<span>Inspired by Dior</span>
+<span>Inspired by YSL</span>
+<span>Inspired by Gucci</span>
+</div>
+
+<div class="price-rating">
+<div class="price">Rs 8,999</div>
+<div class="rating">★★★★★</div>
+</div>
+
+<div class="card-buttons">
+<button class="small-btn cart-btn">Add To Cart</button>
+<button class="small-btn shop-btn">Shop Now</button>
+</div>
+
+</div>
+</div>
+
+</div>
+
+</section>
+
+<!-- =========================
+PERFUME TYPES
+========================= -->
+
+<section class="section" id="types">
+
+<div class="section-title">
+<h2>Perfume Types</h2>
+<p>Find the perfect fragrance intensity for your lifestyle.</p>
+</div>
+
+<div class="types-grid">
+
+<div class="type-card">
+<h3>Eau de Parfum</h3>
+<p>
+Strong and long-lasting fragrance with rich scent concentration.
+Perfect for evenings and special occasions.
+</p>
+</div>
+
+<div class="type-card">
+<h3>Eau de Toilette</h3>
+<p>
+Light and refreshing perfume for daily wear with soft elegance.
+Comfortable for any time of day.
+</p>
+</div>
+
+<div class="type-card">
+<h3>Eau de Cologne</h3>
+<p>
+Fresh and airy fragrance with light intensity.
+Best for summer and quick freshness.
+</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- =========================
+WHY CHOOSE
+========================= -->
+
+<section class="section">
+
+<div class="section-title">
+<h2>Why Shop From SoftEra?</h2>
+<p>Luxury fragrances designed with beauty, quality, and elegance.</p>
+</div>
+
+<div class="why-grid">
+
+<div class="why-card">
+<h3>Premium Quality</h3>
+<p>
+Luxury-inspired perfumes made using carefully selected fragrance notes.
+</p>
+</div>
+
+<div class="why-card">
+<h3>Long Lasting</h3>
+<p>
+Designed to stay noticeable and beautifully fresh for long hours.
+</p>
+</div>
+
+<div class="why-card">
+<h3>Affordable Luxury</h3>
+<p>
+Enjoy designer-inspired elegance without expensive prices.
+</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- =========================
+CTA
+========================= -->
+
+<section class="cta">
+
+<h2>Find the Perfume That Matches Your Personality</h2>
+
+<p>
+From soft florals to bold oudh fragrances,
+SoftEra has a scent for every mood and every woman.
+</p>
+
+<div class="hero-buttons">
+<a href="#" class="btn btn-gold">Shop Now</a>
+<a href="#" class="btn btn-outline">View All Collections</a>
+<a href="#" class="btn btn-gold">Best Sellers</a>
+</div>
+
+</section>
+
+<!-- =========================
+FOOTER
+========================= -->
+
+<footer>
+
+<div class="footer-grid">
+
+<div class="footer-column">
+<h3>SoftEra</h3>
+<a href="#">Home</a>
+<a href="#">Collections</a>
+<a href="#">Gift Sets</a>
+<a href="#">Best Sellers</a>
+</div>
+
+<div class="footer-column">
+<h3>Customer Care</h3>
+<a href="#">Contact Us</a>
+<a href="#">FAQ</a>
+<a href="#">Shipping</a>
+<a href="#">Returns</a>
+</div>
+
+<div class="footer-column">
+<h3>Account</h3>
+<a href="#">Login</a>
+<a href="#">Wishlist</a>
+<a href="#">Cart</a>
+<a href="#">Checkout</a>
+</div>
+
+<div class="footer-column">
+<h3>Extra Pages</h3>
+<a href="#">About Us</a>
+<a href="#">Blog</a>
+<a href="#">Privacy Policy</a>
+<a href="#">Order Tracking</a>
+</div>
+
+</div>
+
+<div class="copyright">
+© 2026 SoftEra Perfumes — Luxury Beauty Experience
+</div>
+
+</footer>
+
+<!-- =========================
+JAVASCRIPT
+========================= -->
+
+<script>
+
+// ADD TO CART
+
+const cartButtons = document.querySelectorAll('.cart-btn');
+
+cartButtons.forEach(button => {
+
+button.addEventListener('click', () => {
+
+button.innerText = "Added ✓";
+
+button.style.background = "#c8a96b";
+
+});
+
+});
+
+// SHOP BUTTON
+
+const shopButtons = document.querySelectorAll('.shop-btn');
+
+shopButtons.forEach(button => {
+
+button.addEventListener('click', () => {
+
+alert("Redirecting to Product Details Page");
+
+});
+
+});
+
+// WISHLIST
+
+const wishlistButtons = document.querySelectorAll('.wishlist');
+
+wishlistButtons.forEach(heart => {
+
+heart.addEventListener('click', () => {
+
+if(heart.innerHTML === "♡"){
+
+heart.innerHTML = "♥";
+heart.style.color = "red";
+
+}else{
+
+heart.innerHTML = "♡";
+heart.style.color = "#111";
+
+}
+
+});
+
+});
+
+</script>
+
+</body>
+</html>

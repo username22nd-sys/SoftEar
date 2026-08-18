@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>SoftEra MEN — Royal Luxury</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    body{
+      font-family:'Poppins',sans-serif;
+      background:
+      linear-gradient(135deg,#071120,#0d1b3d,#132850,#1d3f7a);
+      color:#fff;
+      overflow-x:hidden;
+    }
+
+    img{
+      width:100%;
+      display:block;
+      object-fit:cover;
+    }
+
+    a{
+      text-decoration:none;
+      color:inherit;
+    }
+
+    /* NAVBAR */
+
+    nav{
+      position:fixed;
+      width:100%;
+      top:0;
+      z-index:1000;
+
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+
+      padding:20px 7%;
+
+      background:rgba(5,10,25,0.65);
+      backdrop-filter:blur(12px);
+
+      border-bottom:1px solid rgba(255,255,255,0.08);
+    }
+
+    .logo{
+      font-size:30px;
+      font-weight:700;
+      letter-spacing:2px;
+      color:#ffffff;
+    }
+
+    .links{
+      display:flex;
+      gap:28px;
+      font-size:14px;
+      text-transform:uppercase;
+    }
+
+    .links a{
+      transition:0.3s;
+      color:#d8e6ff;
+    }
+
+    .links a:hover{
+      color:#7ab6ff;
+    }
+
+    /* HERO */
+
+    .hero{
+      min-height:100vh;
+
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      align-items:center;
+
+      padding:130px 7% 70px;
+
+      background:
+      linear-gradient(to right,
+      rgba(5,10,25,0.92),
+      rgba(10,25,60,0.72)),
+      url('https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=1600&q=80');
+
+      background-size:cover;
+      background-position:center;
+    }
+
+    .hero-text h1{
+      font-size:72px;
+      line-height:1.05;
+      margin-bottom:24px;
+
+      font-family:'Playfair Display',serif;
+    }
+
+    .hero-text span{
+      color:#7ab6ff;
+    }
+
+    .hero-text p{
+      color:#c9d6f0;
+      line-height:1.9;
+      margin-bottom:35px;
+      max-width:560px;
+      font-size:16px;
+    }
+
+    .btn{
+      display:inline-block;
+      padding:15px 34px;
+
+      border-radius:60px;
+
+      background:linear-gradient(135deg,#7ab6ff,#c5dcff);
+
+      color:#071120;
+      font-weight:700;
+
+      transition:0.4s;
+      box-shadow:0 10px 30px rgba(122,182,255,0.3);
+    }
+
+    .btn:hover{
+      transform:translateY(-5px) scale(1.03);
+    }
+
+    /* HERO MODEL */
+
+    .hero-model{
+      display:flex;
+      justify-content:center;
+      align-items:center;
+    }
+
+    .hero-model img{
+      width:85%;
+      height:700px;
+
+      border-radius:30px;
+
+      object-fit:cover;
+
+      border:1px solid rgba(255,255,255,0.08);
+
+      box-shadow:
+      0 20px 60px rgba(0,0,0,0.45);
+    }
+
+    /* SECTION */
+
+    .section{
+      padding:100px 7%;
+    }
+
+    .title{
+      text-align:center;
+      margin-bottom:60px;
+    }
+
+    .title h2{
+      font-size:50px;
+      font-family:'Playfair Display',serif;
+      margin-bottom:10px;
+    }
+
+    .title p{
+      color:#b9c7e2;
+    }
+
+    /* GRID */
+
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+      gap:30px;
+    }
+
+    .card{
+      background:
+      linear-gradient(145deg,
+      rgba(255,255,255,0.04),
+      rgba(255,255,255,0.02));
+
+      border-radius:25px;
+      overflow:hidden;
+
+      transition:0.4s;
+
+      border:1px solid rgba(255,255,255,0.05);
+
+      backdrop-filter:blur(10px);
+    }
+
+    .card:hover{
+      transform:translateY(-10px);
+      box-shadow:0 15px 40px rgba(0,0,0,0.35);
+    }
+
+    .card img{
+      height:330px;
+    }
+
+    .content{
+      padding:24px;
+    }
+
+    .content h3{
+      margin-bottom:10px;
+      font-size:24px;
+    }
+
+    .content p{
+      color:#b9c7e2;
+      line-height:1.7;
+    }
+
+    .price{
+      margin-top:15px;
+      font-size:20px;
+      font-weight:700;
+      color:#7ab6ff;
+    }
+
+    /* FOOTER */
+
+    footer{
+      padding:60px 7%;
+      text-align:center;
+
+      color:#9fb3d9;
+
+      border-top:1px solid rgba(255,255,255,0.08);
+
+      background:rgba(0,0,0,0.2);
+    }
+
+    /* MOBILE */
+
+    @media(max-width:950px){
+
+      .hero{
+        grid-template-columns:1fr;
+        gap:50px;
+      }
+
+      .hero-text h1{
+        font-size:52px;
+      }
+
+      .hero-model img{
+        height:500px;
+      }
+
+      .links{
+        display:none;
+      }
+
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+
+  <nav>
+
+    <div class="logo">
+      SoftEra MEN
+    </div>
+
+    <div class="links">
+      <a href="#">Home</a>
+      <a href="#">Luxury Suits</a>
+      <a href="#">Sneakers</a>
+      <a href="#">Perfumes</a>
+      <a href="#">Grooming</a>
+    </div>
+
+  </nav>
+
+  <!-- HERO -->
+
+  <section class="hero">
+
+    <div class="hero-text">
+
+      <h1>
+        Royal Blue <span>Masculine</span> Luxury
+      </h1>
+
+      <p>
+        Premium menswear, elite street fashion, luxury perfumes, sneakers,
+        and modern grooming essentials crafted for confident men with timeless style.
+      </p>
+
+      <a href="#" class="btn">
+        Explore Collection
+      </a>
+
+    </div>
+
+    <!-- MALE MODEL -->
+
+    <div class="hero-model">
+
+      <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=1200&q=80" alt="Male Model">
+
+    </div>
+
+  </section>
+
+  <!-- COLLECTION -->
+
+  <section class="section">
+
+    <div class="title">
+
+      <h2>Luxury Men Collection</h2>
+
+      <p>
+        Designed with royal aesthetics & modern masculine fashion
+      </p>
+
+    </div>
+
+    <div class="grid">
+
+      <div class="card">
+
+        <img src="https://images.unsplash.com/photo-1593032465171-8bd4e5f8c4b2?auto=format&fit=crop&w=900&q=80">
+
+        <div class="content">
+
+          <h3>Royal Suits</h3>
+
+          <p>
+            Elegant tailored suits with premium luxury finish.
+          </p>
+
+          <div class="price">$220</div>
+
+        </div>
+
+      </div>
+
+      <div class="card">
+
+        <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=900&q=80">
+
+        <div class="content">
+
+          <h3>Luxury Sneakers</h3>
+
+          <p>
+            Clean urban streetwear sneaker culture for modern men.
+          </p>
+
+          <div class="price">$140</div>
+
+        </div>
+
+      </div>
+
+      <div class="card">
+
+        <img src="https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&w=900&q=80">
+
+        <div class="content">
+
+          <h3>Signature Perfume</h3>
+
+          <p>
+            Long-lasting masculine fragrances with elite vibes.
+          </p>
+
+          <div class="price">$95</div>
+
+        </div>
+
+      </div>
+
+      <div class="card">
+
+        <img src="https://images.unsplash.com/photo-1621605815971-fbc98d665033?auto=format&fit=crop&w=900&q=80">
+
+        <div class="content">
+
+          <h3>Men Grooming</h3>
+
+          <p>
+            Premium skincare & beard essentials for classy men.
+          </p>
+
+          <div class="price">$55</div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+
+  <footer>
+
+    © 2026 SoftEra MEN — Royal Luxury Fashion Experience
+
+  </footer>
+
+</body>
+</html>

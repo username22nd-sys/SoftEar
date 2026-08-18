@@ -1,0 +1,845 @@
+# SoftEar — Luxury Beauty E-Commerce Website
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>SoftEar Beauty | Luxury Makeup, Skincare & Beauty Products</title>
+<meta name="description" content="Shop luxury beauty products at SoftEar Beauty. Discover premium makeup, skincare, fragrances, beauty tools, lipsticks, serums, foundations, and self-care essentials with a modern luxury shopping experience.">
+
+<!-- GOOGLE FONTS -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+<!-- ICONS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+scroll-behavior:smooth;
+}
+
+body{
+font-family:'Poppins',sans-serif;
+background:#fff8f7;
+color:#222;
+overflow-x:hidden;
+}
+
+img{
+width:100%;
+display:block;
+}
+
+a{
+text-decoration:none;
+color:inherit;
+}
+
+section{
+padding:90px 8%;
+}
+
+/* NAVBAR */
+
+header{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+background:rgba(255,255,255,0.85);
+backdrop-filter:blur(15px);
+z-index:1000;
+border-bottom:1px solid rgba(0,0,0,0.06);
+}
+
+.navbar{
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:18px 8%;
+}
+
+.logo{
+font-size:2rem;
+font-family:'Playfair Display',serif;
+font-weight:700;
+color:#111;
+}
+
+.logo span{
+color:#d88b9a;
+}
+
+.nav-links{
+display:flex;
+gap:28px;
+}
+
+.nav-links a{
+font-size:0.95rem;
+font-weight:500;
+transition:0.3s;
+}
+
+.nav-links a:hover{
+color:#d88b9a;
+}
+
+.nav-icons{
+display:flex;
+gap:18px;
+font-size:1.1rem;
+}
+
+.menu-btn{
+display:none;
+font-size:1.5rem;
+cursor:pointer;
+}
+
+/* HERO */
+
+.hero{
+min-height:100vh;
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:60px;
+padding-top:150px;
+background:linear-gradient(to right,#fff7f6,#fbe4e7);
+}
+
+.hero-text{
+flex:1;
+}
+
+.hero-text h1{
+font-size:4rem;
+line-height:1.1;
+font-family:'Playfair Display',serif;
+margin-bottom:25px;
+}
+
+.hero-text p{
+font-size:1rem;
+line-height:1.8;
+margin-bottom:35px;
+max-width:550px;
+color:#555;
+}
+
+.hero-btns{
+display:flex;
+gap:18px;
+}
+
+.btn{
+padding:15px 34px;
+border:none;
+border-radius:50px;
+font-size:0.95rem;
+font-weight:600;
+cursor:pointer;
+transition:0.4s;
+}
+
+.primary-btn{
+background:#111;
+color:#fff;
+}
+
+.primary-btn:hover{
+background:#d88b9a;
+transform:translateY(-3px);
+}
+
+.secondary-btn{
+background:#fff;
+box-shadow:0 10px 30px rgba(0,0,0,0.08);
+}
+
+.secondary-btn:hover{
+background:#f5d3d9;
+}
+
+.hero-image{
+flex:1;
+position:relative;
+}
+
+.hero-image img{
+border-radius:30px;
+box-shadow:0 25px 50px rgba(0,0,0,0.15);
+}
+
+/* SECTION TITLE */
+
+.section-title{
+text-align:center;
+margin-bottom:60px;
+}
+
+.section-title h2{
+font-size:2.8rem;
+font-family:'Playfair Display',serif;
+margin-bottom:15px;
+}
+
+.section-title p{
+color:#777;
+}
+
+/* CATEGORIES */
+
+.category-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:25px;
+}
+
+.category-card{
+position:relative;
+border-radius:25px;
+overflow:hidden;
+height:350px;
+cursor:pointer;
+}
+
+.category-card img{
+height:100%;
+object-fit:cover;
+transition:0.5s;
+}
+
+.category-card:hover img{
+transform:scale(1.1);
+}
+
+.category-overlay{
+position:absolute;
+inset:0;
+background:linear-gradient(to top,rgba(0,0,0,0.7),transparent);
+display:flex;
+flex-direction:column;
+justify-content:flex-end;
+padding:30px;
+color:#fff;
+}
+
+.category-overlay h3{
+font-size:1.7rem;
+margin-bottom:12px;
+}
+
+.shop-btn{
+display:inline-block;
+padding:12px 24px;
+background:#fff;
+color:#111;
+border-radius:30px;
+font-weight:600;
+width:max-content;
+transition:0.3s;
+}
+
+.shop-btn:hover{
+background:#d88b9a;
+color:#fff;
+}
+
+/* PRODUCTS */
+
+.products{
+background:#fff;
+}
+
+.product-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:30px;
+}
+
+.product-card{
+background:#fff;
+border-radius:25px;
+padding:18px;
+box-shadow:0 15px 40px rgba(0,0,0,0.06);
+transition:0.4s;
+position:relative;
+overflow:hidden;
+}
+
+.product-card:hover{
+transform:translateY(-10px);
+}
+
+.product-img{
+height:280px;
+overflow:hidden;
+border-radius:20px;
+}
+
+.product-img img{
+height:100%;
+object-fit:cover;
+transition:0.5s;
+}
+
+.product-card:hover img{
+transform:scale(1.08);
+}
+
+.wishlist{
+position:absolute;
+top:28px;
+right:28px;
+background:#fff;
+width:42px;
+height:42px;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+box-shadow:0 10px 20px rgba(0,0,0,0.08);
+cursor:pointer;
+}
+
+.product-info{
+padding-top:22px;
+}
+
+.product-info h4{
+font-size:1.1rem;
+margin-bottom:10px;
+}
+
+.price{
+font-size:1.1rem;
+font-weight:700;
+color:#d88b9a;
+margin:10px 0;
+}
+
+.rating{
+color:gold;
+margin-bottom:15px;
+}
+
+.cart-btn{
+width:100%;
+padding:14px;
+border:none;
+border-radius:40px;
+background:#111;
+color:#fff;
+font-weight:600;
+cursor:pointer;
+transition:0.3s;
+}
+
+.cart-btn:hover{
+background:#d88b9a;
+}
+
+/* BANNER */
+
+.banner{
+background:linear-gradient(to right,#111,#d88b9a);
+color:#fff;
+border-radius:35px;
+padding:70px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+gap:40px;
+}
+
+.banner h2{
+font-size:3rem;
+font-family:'Playfair Display',serif;
+margin-bottom:20px;
+}
+
+.banner p{
+line-height:1.8;
+margin-bottom:25px;
+}
+
+/* TESTIMONIALS */
+
+.testimonial-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:30px;
+}
+
+.testimonial-card{
+background:rgba(255,255,255,0.7);
+backdrop-filter:blur(10px);
+padding:35px;
+border-radius:25px;
+box-shadow:0 15px 40px rgba(0,0,0,0.06);
+}
+
+.testimonial-card p{
+line-height:1.8;
+margin-bottom:20px;
+color:#555;
+}
+
+/* GALLERY */
+
+.gallery-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
+}
+
+.gallery-grid img{
+height:280px;
+object-fit:cover;
+border-radius:20px;
+transition:0.4s;
+}
+
+.gallery-grid img:hover{
+transform:scale(1.05);
+}
+
+/* NEWSLETTER */
+
+.newsletter{
+background:#fcecef;
+text-align:center;
+border-radius:30px;
+padding:70px 40px;
+}
+
+.newsletter h2{
+font-size:2.8rem;
+margin-bottom:20px;
+font-family:'Playfair Display',serif;
+}
+
+.newsletter form{
+margin-top:30px;
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+gap:15px;
+}
+
+.newsletter input{
+padding:16px 20px;
+width:350px;
+border:none;
+border-radius:40px;
+font-size:1rem;
+}
+
+/* FOOTER */
+
+footer{
+background:#111;
+color:#fff;
+padding:80px 8% 40px;
+}
+
+.footer-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:40px;
+margin-bottom:50px;
+}
+
+.footer-col h3{
+margin-bottom:25px;
+font-size:1.2rem;
+}
+
+.footer-col a{
+display:block;
+margin-bottom:12px;
+color:#bbb;
+transition:0.3s;
+}
+
+.footer-col a:hover{
+color:#fff;
+padding-left:5px;
+}
+
+.socials{
+display:flex;
+gap:15px;
+margin-top:20px;
+}
+
+.socials i{
+width:45px;
+height:45px;
+border-radius:50%;
+background:#222;
+display:flex;
+align-items:center;
+justify-content:center;
+transition:0.3s;
+cursor:pointer;
+}
+
+.socials i:hover{
+background:#d88b9a;
+}
+
+.footer-bottom{
+text-align:center;
+padding-top:30px;
+border-top:1px solid rgba(255,255,255,0.1);
+color:#aaa;
+}
+
+/* MOBILE */
+
+@media(max-width:992px){
+
+.hero{
+flex-direction:column;
+text-align:center;
+}
+
+.hero-text p{
+margin:auto auto 35px;
+}
+
+.hero-btns{
+justify-content:center;
+}
+
+.nav-links{
+position:absolute;
+top:100%;
+left:-100%;
+width:100%;
+background:#fff;
+flex-direction:column;
+padding:30px;
+transition:0.4s;
+}
+
+.nav-links.active{
+left:0;
+}
+
+.menu-btn{
+display:block;
+}
+
+.banner{
+flex-direction:column;
+text-align:center;
+}
+
+}
+
+@media(max-width:600px){
+
+.hero-text h1{
+font-size:2.8rem;
+}
+
+.section-title h2,
+.banner h2,
+.newsletter h2{
+font-size:2rem;
+}
+
+section{
+padding:80px 5%;
+}
+
+}
+
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+<div class="navbar">
+<div class="logo">Soft<span>Ear</span></div>
+
+<div class="nav-links" id="navLinks">
+<a href="#home">Home</a>
+<a href="#shop">Shop</a>
+<a href="#collections">Collections</a>
+<a href="#reviews">Reviews</a>
+<a href="#contact">Contact</a>
+</div>
+
+<div class="nav-icons">
+<i class="fa-solid fa-magnifying-glass"></i>
+<i class="fa-regular fa-heart"></i>
+<i class="fa-solid fa-bag-shopping"></i>
+<div class="menu-btn" id="menuBtn">
+<i class="fa-solid fa-bars"></i>
+</div>
+</div>
+</div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="home">
+
+<div class="hero-text">
+<h1>Luxury Beauty That Defines You</h1>
+<p>
+Discover premium makeup, skincare, fragrances, and beauty essentials crafted for elegance, confidence, and timeless glow.
+</p>
+
+<div class="hero-btns">
+<button class="btn primary-btn">Shop Now</button>
+<button class="btn secondary-btn">Explore Collection</button>
+</div>
+</div>
+
+<div class="hero-image">
+<img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=1200&auto=format&fit=crop" alt="Beauty Model">
+</div>
+
+</section>
+
+<!-- CATEGORIES -->
+<section id="collections">
+
+<div class="section-title">
+<h2>Luxury Beauty Collections</h2>
+<p>Premium beauty essentials curated for every glow.</p>
+</div>
+
+<div class="category-grid">
+
+<div class="category-card">
+<img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?q=80&w=1200&auto=format&fit=crop">
+<div class="category-overlay">
+<h3>Makeup</h3>
+<a href="#shop" class="shop-btn">Shop Now</a>
+</div>
+</div>
+
+<div class="category-card">
+<img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?q=80&w=1200&auto=format&fit=crop">
+<div class="category-overlay">
+<h3>Skincare</h3>
+<a href="#shop" class="shop-btn">Shop Now</a>
+</div>
+</div>
+
+<div class="category-card">
+<img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?q=80&w=1200&auto=format&fit=crop">
+<div class="category-overlay">
+<h3>Perfumes</h3>
+<a href="#shop" class="shop-btn">Shop Now</a>
+</div>
+</div>
+
+<div class="category-card">
+<img src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?q=80&w=1200&auto=format&fit=crop">
+<div class="category-overlay">
+<h3>Beauty Tools</h3>
+<a href="#shop" class="shop-btn">Shop Now</a>
+</div>
+</div>
+
+</div>
+
+</section>
+
+<!-- PRODUCTS -->
+<section class="products" id="shop">
+
+<div class="section-title">
+<h2>Trending Beauty Products</h2>
+<p>Shop luxury beauty best sellers loved worldwide.</p>
+</div>
+
+<div class="product-grid">
+
+<div class="product-card">
+<div class="wishlist"><i class="fa-regular fa-heart"></i></div>
+<div class="product-img">
+<img src="https://images.unsplash.com/photo-1631214540242-0b7d0f2f5c35?q=80&w=1200&auto=format&fit=crop">
+</div>
+<div class="product-info">
+<h4>Luxury Matte Foundation</h4>
+<div class="price">$49</div>
+<div class="rating">★★★★★</div>
+<button class="cart-btn">Add To Cart</button>
+</div>
+</div>
+
+<div class="product-card">
+<div class="wishlist"><i class="fa-regular fa-heart"></i></div>
+<div class="product-img">
+<img src="https://images.unsplash.com/photo-1583241800698-9e8bfcdf0f96?q=80&w=1200&auto=format&fit=crop">
+</div>
+<div class="product-info">
+<h4>Rose Glow Lipstick</h4>
+<div class="price">$29</div>
+<div class="rating">★★★★★</div>
+<button class="cart-btn">Add To Cart</button>
+</div>
+</div>
+
+<div class="product-card">
+<div class="wishlist"><i class="fa-regular fa-heart"></i></div>
+<div class="product-img">
+<img src="https://images.unsplash.com/photo-1571781926291-c477ebfd024b?q=80&w=1200&auto=format&fit=crop">
+</div>
+<div class="product-info">
+<h4>Hydrating Face Serum</h4>
+<div class="price">$59</div>
+<div class="rating">★★★★★</div>
+<button class="cart-btn">Add To Cart</button>
+</div>
+</div>
+
+<div class="product-card">
+<div class="wishlist"><i class="fa-regular fa-heart"></i></div>
+<div class="product-img">
+<img src="https://images.unsplash.com/photo-1596755389378-c31d21fd1273?q=80&w=1200&auto=format&fit=crop">
+</div>
+<div class="product-info">
+<h4>Luxury Perfume Edition</h4>
+<div class="price">$89</div>
+<div class="rating">★★★★★</div>
+<button class="cart-btn">Add To Cart</button>
+</div>
+</div>
+
+</div>
+
+</section>
+
+<!-- SALE BANNER -->
+<section>
+<div class="banner">
+<div>
+<h2>Glow Up Sale — Up To 50% Off</h2>
+<p>
+Upgrade your beauty routine with premium skincare, makeup, and self-care essentials.
+</p>
+<button class="btn secondary-btn">Shop The Sale</button>
+</div>
+
+<img src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?q=80&w=1200&auto=format&fit=crop" style="max-width:400px;border-radius:25px;">
+</div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="reviews">
+<div class="section-title">
+<h2>What Beauty Lovers Say</h2>
+<p>Thousands trust SoftEar for luxury beauty essentials.</p>
+</div>
+
+<div class="testimonial-grid">
+
+<div class="testimonial-card">
+<p>
+“Absolutely obsessed with the skincare collection. The quality feels incredibly premium and luxurious.”
+</p>
+<h4>— Emma Wilson</h4>
+</div>
+
+<div class="testimonial-card">
+<p>
+“The packaging, products, and shopping experience feel like a high-end designer beauty brand.”
+</p>
+<h4>— Olivia Smith</h4>
+</div>
+
+<div class="testimonial-card">
+<p>
+“Best makeup products I’ve purchased online. Elegant design and amazing quality.”
+</p>
+<h4>— Sophia Brown</h4>
+</div>
+
+</div>
+</section>
+
+<!-- GALLERY -->
+<section>
+<div class="section-title">
+<h2>Beauty Inspiration</h2>
+<p>Luxury beauty moments curated by SoftEar.</p>
+</div>
+
+<div class="gallery-grid">
+<img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1200&auto=format&fit=crop">
+<img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=1200&auto=format&fit=crop">
+<img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?q=80&w=1200&auto=format&fit=crop">
+<img src="https://images.unsplash.com/photo-1521572267360-ee0c2909d518?q=80&w=1200&auto=format&fit=crop">
+</div>
+</section>
+
+<!-- NEWSLETTER -->
+<section>
+<div class="newsletter">
+<h2>Join The SoftEar Beauty Club</h2>
+<p>Get exclusive offers, beauty tips, and luxury product launches.</p>
+
+<form>
+<input type="email" placeholder="Enter your email">
+<button class="btn primary-btn">Subscribe</button>
+</form>
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer id="contact">
+
+<div class="footer-grid">
+
+<div class="footer-col">
+<h3>SoftEar</h3>
+<p>
+Luxury beauty essentials crafted for confidence, glow, and timeless elegance.
+</p>
+<div class="socials">
+<i class="fa-brands fa-instagram"></i>
+<i class="fa-brands fa-facebook-f"></i>
+<i class="fa-brands fa-tiktok"></i>
+<i class="fa-brands fa-pinterest-p"></i>
+</div>
+</div>
+
+<div class="footer-col">
+<h3>Shop</h3>
+<a href="#">Makeup</a>
+<a href="#">Skincare</a>
+<a href="#">Perfumes</a>
+<a href="#">Beauty Tools</a>
+</div>
+
+<div class="footer-col">
+<h3>Pages</h3>
+<a href="#">Wishlist</a>
+<a href="#">Cart</a>
+<a href="#">Checkout</a>
+<a href="#">Track Order</a>
+</div>
+
+<div class="footer-col">
+<h3>Support</h3>
+<a href="#">About Us</a>
+<a href="#">Privacy Policy</a>
+```

@@ -1,0 +1,1043 @@
+# SoftEra — Luxury Gen Z E-Commerce Website
+
+Save this as `index.html` in VS Code.
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SoftEra | Luxury Fashion</title>
+<meta discrtion=" "
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+scroll-behavior:smooth;
+}
+
+body{
+font-family:'Poppins',sans-serif;
+background:#fff;
+color:#111;
+overflow-x:hidden;
+}
+
+body.dark{
+background:#111;
+color:#fff;
+}
+
+img{
+max-width:100%;
+display:block;
+}
+
+/* LOADER */
+
+.loader{
+position:fixed;
+inset:0;
+background:#fff;
+display:flex;
+justify-content:center;
+align-items:center;
+z-index:99999;
+animation:hideLoader 3s forwards;
+}
+
+.loader h1{
+font-size:70px;
+font-family:'Playfair Display',serif;
+background:linear-gradient(90deg,#f8d7df,#d6c7f5,#b08968);
+
+-webkit-text-fill-color:transparent;
+animation:pulse 2s infinite;
+}
+
+@keyframes pulse{
+50%{transform:scale(1.08);}
+}
+
+@keyframes hideLoader{
+90%{opacity:1;}
+100%{
+opacity:0;
+visibility:hidden;
+}
+}
+
+/* NAVBAR */
+
+header{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+padding:22px 8%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:rgba(255,255,255,0.6);
+backdrop-filter:blur(15px);
+z-index:1000;
+border-bottom:1px solid rgba(255,255,255,0.2);
+}
+
+.logo{
+font-size:34px;
+font-family:'Playfair Display',serif;
+font-weight:700;
+}
+
+nav{
+display:flex;
+gap:30px;
+}
+
+nav a{
+text-decoration:none;
+color:#111;
+font-weight:500;
+transition:0.4s;
+}
+
+nav a:hover{
+color:#b08968;
+}
+
+.nav-icons{
+display:flex;
+gap:18px;
+font-size:18px;
+}
+
+.nav-icons i{
+width:45px;
+height:45px;
+background:#fff;
+border-radius:50%;
+display:flex;
+justify-content:center;
+align-items:center;
+box-shadow:0 8px 20px rgba(0,0,0,0.08);
+cursor:pointer;
+transition:0.4s;
+}
+
+.nav-icons i:hover{
+transform:translateY(-5px);
+}
+
+.menu-btn{
+display:none;
+font-size:28px;
+cursor:pointer;
+}
+
+/* HERO */
+
+.hero{
+min-height:100vh;
+padding:160px 8% 80px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:
+linear-gradient(to right,rgba(255,255,255,.9),rgba(255,255,255,.4)),
+url('https://images.unsplash.com/photo-1496747611176-843222e1e57c?q=80&w=1800&auto=format&fit=crop');
+background-size:cover;
+background-position:center;
+}
+
+.hero-text{
+max-width:650px;
+}
+
+.hero-text span{
+padding:10px 20px;
+background:#111;
+color:#fff;
+border-radius:30px;
+font-size:14px;
+}
+
+.hero-text h1{
+font-size:85px;
+line-height:1.05;
+margin:30px 0;
+font-family:'Playfair Display',serif;
+}
+
+.hero-text p{
+font-size:18px;
+line-height:1.8;
+color:#555;
+margin-bottom:35px;
+}
+
+.hero-btns{
+display:flex;
+gap:20px;
+}
+
+.hero-btns button{
+padding:16px 34px;
+border:none;
+border-radius:40px;
+font-weight:600;
+cursor:pointer;
+transition:0.4s;
+font-size:15px;
+}
+
+.primary-btn{
+background:linear-gradient(90deg,#f8d7df,#d6c7f5);
+}
+
+.secondary-btn{
+background:#111;
+color:#fff;
+}
+
+.hero-btns button:hover{
+transform:translateY(-6px);
+}
+
+/* STORY HIGHLIGHTS */
+
+.stories{
+padding:40px 8%;
+display:flex;
+gap:25px;
+overflow:auto;
+background:#fff7f9;
+}
+
+.story{
+text-align:center;
+min-width:100px;
+}
+
+.story img{
+width:85px;
+height:85px;
+border-radius:50%;
+padding:3px;
+background:linear-gradient(45deg,#f8d7df,#d6c7f5,#b08968);
+object-fit:cover;
+margin:auto;
+}
+
+.story p{
+margin-top:10px;
+font-size:14px;
+}
+
+/* SECTION TITLE */
+
+.section-title{
+text-align:center;
+margin-bottom:70px;
+}
+
+.section-title h2{
+font-size:52px;
+font-family:'Playfair Display',serif;
+margin-bottom:15px;
+}
+
+.section-title p{
+color:#777;
+max-width:700px;
+margin:auto;
+line-height:1.7;
+}
+
+/* CATEGORIES */
+
+.categories{
+padding:100px 8%;
+}
+
+.category-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:30px;
+}
+
+.category-card{
+height:420px;
+position:relative;
+overflow:hidden;
+border-radius:30px;
+cursor:pointer;
+}
+
+.category-card img{
+width:100%;
+height:100%;
+object-fit:cover;
+transition:1s;
+}
+
+.category-card:hover img{
+transform:scale(1.1);
+}
+
+.overlay{
+position:absolute;
+inset:0;
+background:linear-gradient(to top,rgba(0,0,0,.75),transparent);
+display:flex;
+align-items:flex-end;
+padding:30px;
+}
+
+.overlay h3{
+color:#fff;
+font-size:30px;
+font-family:'Playfair Display',serif;
+}
+
+/* PRODUCTS */
+
+.products{
+padding:100px 8%;
+background:#fff7f9;
+}
+
+.product-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:35px;
+}
+
+.product-card{
+background:rgba(255,255,255,0.7);
+backdrop-filter:blur(15px);
+border-radius:28px;
+overflow:hidden;
+position:relative;
+box-shadow:0 15px 40px rgba(0,0,0,.08);
+transition:0.5s;
+}
+
+.product-card:hover{
+transform:translateY(-10px);
+}
+
+.product-card img{
+height:360px;
+width:100%;
+object-fit:cover;
+}
+
+.badge{
+position:absolute;
+top:20px;
+left:20px;
+padding:8px 15px;
+background:#111;
+color:#fff;
+border-radius:30px;
+font-size:12px;
+}
+
+.heart{
+position:absolute;
+top:20px;
+right:20px;
+width:42px;
+height:42px;
+border-radius:50%;
+background:#fff;
+display:flex;
+justify-content:center;
+align-items:center;
+}
+
+.product-info{
+padding:25px;
+}
+
+.product-info h4{
+font-size:24px;
+margin-bottom:10px;
+}
+
+.product-info p{
+color:#777;
+line-height:1.7;
+}
+
+.price-row{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-top:20px;
+}
+
+.price-row span{
+font-size:24px;
+font-weight:700;
+}
+
+.price-row button{
+padding:12px 20px;
+border:none;
+border-radius:30px;
+background:linear-gradient(90deg,#f8d7df,#d6c7f5);
+font-weight:600;
+cursor:pointer;
+}
+
+/* BANNER */
+
+.banner{
+margin:100px 8%;
+border-radius:40px;
+overflow:hidden;
+height:500px;
+background:
+linear-gradient(to right,rgba(0,0,0,.5),rgba(0,0,0,.2)),
+url('https://images.unsplash.com/photo-1529139574466-a303027c1d8b?q=80&w=1800&auto=format&fit=crop');
+background-size:cover;
+background-position:center;
+display:flex;
+align-items:center;
+padding:70px;
+}
+
+.banner h2{
+font-size:72px;
+max-width:650px;
+color:#fff;
+font-family:'Playfair Display',serif;
+}
+
+.banner button{
+margin-top:30px;
+padding:16px 35px;
+border:none;
+border-radius:40px;
+font-weight:700;
+cursor:pointer;
+}
+
+/* LOOKBOOK */
+
+.lookbook{
+padding:100px 8%;
+}
+
+.lookbook-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:25px;
+}
+
+.lookbook-grid img{
+height:420px;
+object-fit:cover;
+border-radius:25px;
+transition:0.5s;
+}
+
+.lookbook-grid img:hover{
+transform:scale(1.03);
+}
+
+/* TESTIMONIALS */
+
+.testimonials{
+padding:100px 8%;
+background:#fff7f9;
+}
+
+.testimonial-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:30px;
+}
+
+.testimonial{
+background:#fff;
+padding:35px;
+border-radius:25px;
+box-shadow:0 10px 30px rgba(0,0,0,0.08);
+}
+
+.testimonial p{
+line-height:1.8;
+color:#555;
+margin-bottom:20px;
+}
+
+.testimonial h4{
+font-size:18px;
+}
+
+/* BLOGS */
+
+.blogs{
+padding:100px 8%;
+}
+
+.blog-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+gap:30px;
+}
+
+.blog-card{
+background:#fff;
+border-radius:28px;
+overflow:hidden;
+box-shadow:0 10px 30px rgba(0,0,0,.08);
+}
+
+.blog-card img{
+height:240px;
+width:100%;
+object-fit:cover;
+}
+
+.blog-content{
+padding:25px;
+}
+
+.blog-content h3{
+font-size:24px;
+margin-bottom:15px;
+}
+
+.blog-content p{
+line-height:1.8;
+color:#666;
+}
+
+/* NEWSLETTER */
+
+.newsletter{
+padding:100px 8%;
+text-align:center;
+background:#fff7f9;
+}
+
+.newsletter h2{
+font-size:58px;
+font-family:'Playfair Display',serif;
+}
+
+.newsletter p{
+margin:20px auto;
+max-width:700px;
+line-height:1.8;
+color:#666;
+}
+
+.newsletter-box{
+display:flex;
+justify-content:center;
+gap:15px;
+margin-top:30px;
+}
+
+.newsletter-box input{
+width:420px;
+padding:18px;
+border:none;
+border-radius:40px;
+background:#fff;
+}
+
+.newsletter-box button{
+padding:18px 35px;
+border:none;
+border-radius:40px;
+background:#111;
+color:#fff;
+font-weight:600;
+cursor:pointer;
+}
+
+/* FOOTER */
+
+footer{
+background:#111;
+color:#fff;
+padding:90px 8% 40px;
+}
+
+.footer-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:50px;
+margin-bottom:60px;
+}
+
+.footer-box h3{
+font-size:26px;
+margin-bottom:20px;
+}
+
+.footer-box p{
+line-height:1.8;
+color:#bbb;
+}
+
+.footer-box a{
+display:block;
+margin-bottom:12px;
+text-decoration:none;
+color:#bbb;
+transition:0.4s;
+}
+
+.footer-box a:hover{
+color:#fff;
+}
+
+.socials{
+display:flex;
+gap:15px;
+margin-top:25px;
+}
+
+.socials i{
+width:45px;
+height:45px;
+border-radius:50%;
+background:#222;
+display:flex;
+justify-content:center;
+align-items:center;
+cursor:pointer;
+}
+
+.bottom{
+border-top:1px solid #333;
+padding-top:30px;
+text-align:center;
+color:#999;
+}
+
+/* CHAT BUTTON */
+
+.chat-btn{
+position:fixed;
+right:25px;
+bottom:25px;
+width:65px;
+height:65px;
+border-radius:50%;
+background:linear-gradient(90deg,#f8d7df,#d6c7f5);
+display:flex;
+justify-content:center;
+align-items:center;
+font-size:24px;
+box-shadow:0 10px 30px rgba(0,0,0,.15);
+z-index:999;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:991px){
+
+nav{
+display:none;
+}
+
+.menu-btn{
+display:block;
+}
+
+.hero{
+flex-direction:column;
+text-align:center;
+}
+
+.hero-text h1{
+font-size:55px;
+}
+
+.hero-btns{
+justify-content:center;
+}
+
+.banner h2{
+font-size:45px;
+}
+
+}
+
+@media(max-width:600px){
+
+.hero-text h1{
+font-size:42px;
+}
+
+.section-title h2{
+font-size:36px;
+}
+
+.newsletter h2{
+font-size:38px;
+}
+
+.newsletter-box{
+flex-direction:column;
+}
+
+.newsletter-box input{
+width:100%;
+}
+
+.banner{
+height:auto;
+padding:50px 30px;
+}
+
+.banner h2{
+font-size:35px;
+}
+
+}
+
+</style>
+</head>
+<body>
+
+<div class="loader">
+<h1>SoftEra</h1>
+</div>
+
+<header>
+<div class="logo">SoftEra</div>
+
+<nav>
+<a href="SoftEar.html">Home</a>
+<a href="shoppage.html">Shop</a>
+<a href="Womenpage.html">Women</a>
+<a href="">Men</a>
+<a href="#">Beauty</a>
+<a href="#">Perfumes</a>
+<a href="#">Contact</a>
+</nav>
+
+<div class="nav-icons">
+<i class="fa-solid fa-magnifying-glass"></i>
+<i class="fa-regular fa-heart"></i>
+<i class="fa-solid fa-bag-shopping"></i>
+</div>
+
+<div class="menu-btn">
+<i class="fa-solid fa-bars"></i>
+</div>
+</header>
+
+<section class="hero">
+<div class="hero-text">
+<span>Luxury Fashion 2026</span>
+
+<h1>Luxury Fashion For The Modern Generation</h1>
+
+<p>
+Discover aesthetic fashion collections, premium skincare,
+luxury perfumes, beauty essentials, viral streetwear,
+and modern Gen Z styles inspired by Instagram and Pinterest.
+</p>
+
+<div class="hero-btns">
+<button class="primary-btn">Shop Now</button>
+<button class="secondary-btn">Explore More</button>
+</div>
+</div>
+</section>
+
+<section class="stories">
+<div class="story">
+<img src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?q=80&w=500&auto=format&fit=crop">
+<p>Women</p>
+</div>
+
+<div class="story">
+<img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=500&auto=format&fit=crop">
+<p>Men</p>
+</div>
+
+<div class="story">
+<img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?q=80&w=500&auto=format&fit=crop">
+<p>Beauty</p>
+</div>
+
+<div class="story">
+<img src="https://images.unsplash.com/photo-1594035910387-fea47794261f?q=80&w=500&auto=format&fit=crop">
+<p>Perfumes</p>
+</div>
+
+<div class="story">
+<img src="https://images.unsplash.com/photo-1556228578-8c89e6adf883?q=80&w=500&auto=format&fit=crop">
+<p>Skin Care</p>
+</div>
+</section>
+
+<section class="categories">
+<div class="section-title">
+<h2>Shop By Category</h2>
+<p>Luxury collections inspired by Pinterest aesthetics and TikTok fashion trends.</p>
+</div>
+
+<div class="category-grid">
+
+<div class="category-card">
+<img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1200&auto=format&fit=crop">
+<div class="overlay"><h3>Women Wear</h3></div>
+</div>
+
+<div class="category-card">
+<img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=1200&auto=format&fit=crop">
+<div class="overlay"><h3>Men Wear</h3></div>
+</div>
+
+<div class="category-card">
+<img src="https://images.unsplash.com/photo-1519345182560-3f2917c472ef?q=80&w=1200&auto=format&fit=crop">
+<div class="overlay"><h3>Kids Collection</h3></div>
+</div>
+
+<div class="category-card">
+<img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?q=80&w=1200&auto=format&fit=crop">
+<div class="overlay"><h3>Beauty Products</h3></div>
+</div>
+
+<div class="category-card">
+<img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?q=80&w=1200&auto=format&fit=crop">
+<div class="overlay"><h3>Jewelry</h3></div>
+</div>
+
+<div class="category-card">
+<img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=1200&auto=format&fit=crop">
+<div class="overlay"><h3>Shoes Collection</h3></div>
+</div>
+
+</div>
+</section>
+
+<section class="products">
+<div class="section-title">
+<h2>Trending Products</h2>
+<p>Luxury products loved by creators and influencers worldwide.</p>
+</div>
+
+<div class="product-grid">
+
+<div class="product-card">
+<div class="badge">HOT</div>
+<div class="heart"><i class="fa-regular fa-heart"></i></div>
+<img src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?q=80&w=1200&auto=format&fit=crop">
+<div class="product-info">
+<h4>Luxury Blazer</h4>
+<p>Elegant premium fit inspired by modern editorial fashion.</p>
+<div class="price-row">
+<span>$120</span>
+<button>Add Cart</button>
+</div>
+</div>
+</div>
+
+<div class="product-card">
+<div class="badge">NEW</div>
+<div class="heart"><i class="fa-regular fa-heart"></i></div>
+<img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?q=80&w=1200&auto=format&fit=crop">
+<div class="product-info">
+<h4>SoftEra Hoodie</h4>
+<p>Soft premium oversized hoodie with aesthetic styling.</p>
+<div class="price-row">
+<span>$95</span>
+<button>Add Cart</button>
+</div>
+</div>
+</div>
+
+<div class="product-card">
+<div class="badge">SALE</div>
+<div class="heart"><i class="fa-regular fa-heart"></i></div>
+<img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=1200&auto=format&fit=crop">
+<div class="product-info">
+<h4>Streetwear Fit</h4>
+<p>Trending TikTok inspired aesthetic fashion collection.</p>
+<div class="price-row">
+<span>$88</span>
+<button>Add Cart</button>
+</div>
+</div>
+</div>
+
+</div>
+</section>
+
+<section class="banner">
+<div>
+<h2>Luxury Fashion That Feels Viral</h2>
+<button>Explore Collection</button>
+</div>
+</section>
+
+<section class="lookbook">
+<div class="section-title">
+<h2>Fashion Lookbook</h2>
+<p>Discover cinematic visuals and luxury editorial styles.</p>
+</div>
+
+<div class="lookbook-grid">
+<img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=1200&auto=format&fit=crop">
+<img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1200&auto=format&fit=crop">
+<img src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?q=80&w=1200&auto=format&fit=crop">
+<img src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?q=80&w=1200&auto=format&fit=crop">
+</div>
+</section>
+
+<section class="testimonials">
+<div class="section-title">
+<h2>Customer Reviews</h2>
+<p>What fashion lovers say about SoftEra.</p>
+</div>
+
+<div class="testimonial-grid">
+<div class="testimonial">
+<p>“The quality feels super luxury and the website aesthetic is literally Pinterest vibes.”</p>
+<h4>— Ayesha</h4>
+</div>
+
+<div class="testimonial">
+<p>“SoftEra gives real Instagram luxury fashion energy. Everything feels premium.”</p>
+<h4>— Zara</h4>
+</div>
+
+<div class="testimonial">
+<p>“Best online fashion experience ever. Smooth, modern and beautiful.”</p>
+<h4>— Alina</h4>
+</div>
+</div>
+</section>
+
+<section class="blogs">
+<div class="section-title">
+<h2>Latest Fashion Posts</h2>
+<p>Beauty trends, skincare tips and lifestyle inspiration.</p>
+</div>
+
+<div class="blog-grid">
+<div class="blog-card">
+<img src="https://images.unsplash.com/photo-1521572267360-ee0c2909d518?q=80&w=1200&auto=format&fit=crop">
+<div class="blog-content">
+<h3>Luxury Skin Care Routine</h3>
+<p>Build your soft-glow skincare routine using premium beauty essentials.</p>
+</div>
+</div>
+
+<div class="blog-card">
+<img src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?q=80&w=1200&auto=format&fit=crop">
+<div class="blog-content">
+<h3>Top Gen Z Fashion Trends</h3>
+<p>Explore the latest TikTok and Instagram inspired fashion aesthetics.</p>
+</div>
+</div>
+
+<div class="blog-card">
+<img src="https://images.unsplash.com/photo-1594035910387-fea47794261f?q=80&w=1200&auto=format&fit=crop">
+<div class="blog-content">
+<h3>Perfume Collection Guide</h3>
+<p>Discover signature perfumes that match your luxury vibe.</p>
+</div>
+</div>
+</div>
+</section>
+
+<section class="newsletter">
+<h2>Join The SoftEra Club</h2>
+<p>
+Get exclusive luxury drops, skincare launches,
+beauty updates and premium fashion offers.
+</p>
+
+<div class="newsletter-box">
+<input type="email" placeholder="Enter your email">
+<button>Subscribe</button>
+</div>
+</section>
+
+<footer>
+<div class="footer-grid">
+
+<div class="footer-box">
+<h3>SoftEra</h3>
+<p>
+Luxury fashion destination inspired by Pinterest aesthetics,
+Instagram luxury and TikTok trends.
+</p>
+
+<div class="socials">
+<i class="fa-brands fa-instagram"></i>
+<i class="fa-brands fa-tiktok"></i>
+<i class="fa-brands fa-pinterest"></i>
+<i class="fa-brands fa-facebook-f"></i>
+</div>
+</div>
+
+<div class="footer-box">
+<h3>Quick Links</h3>
+<a href="#">Home</a>
+<a href="#">Shop</a>
+<a href="#">About</a>
+<a href="#">Contact</a>
+</div>
+
+<div class="footer-box">
+<h3>Collections</h3>
+<a href="#">Women Wear</a>
+<a href="#">Men Wear</a>
+<a href="#">Beauty Products</a>
+<a href="#">Perfumes</a>
+</div>
+
+<div class="footer-box">
+<h3>Support</h3>
+<a href="#">FAQs</a>
+<a href="#">Shipping</a>
+<a href="#">Returns</a>
+<a href="#">Privacy Policy</a>
+</div>
+
+</div>
+
+<div class="bottom">
+© 2026 SoftEra — All Rights Reserved
+</div>
+</footer>
+
+<div class="chat-btn">
+<i class="fa-solid fa-comments"></i>
+</div>
+
+<script>
+
+const toggle = document.querySelector('.fa-bag-shopping');
+
+toggle.addEventListener('click',()=>{
+document.body.classList.toggle('dark');
+});
+
+</script>
+
+</body>
+</html>
+```
